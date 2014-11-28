@@ -3,6 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link href="<c:url value='/resources/css/main.css'/>" rel="stylesheet" type="text/css"/>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Main Menu</title>
 <style type="text/css">
@@ -10,45 +11,45 @@
 	.buttonlink { color:#fff;font-size:24px; }
 </style>
 </head>
-<body style="text-align:center;">	
+<body>	
 	<h2>Detective Notebook</h2>
 	<form action="" method="get">
-	<div style="text-align:left;float:left;width:50%;">
-		<span style="font-weight:bold;">Suspects</span><br />
-		Colonel Mustard <input type="radio"><br />
-		Miss Scarlet <input type="radio"><br />
-		Professor Plum <input type="radio"><br />
-		Mr. Green <input type="radio"><br />
-		Mrs. White <input type="radio"><br />
-		Mrs. Peacock <input type="radio"><br />
-		<br />
-		<span style="font-weight:bold;">Rooms</span><br />
-		Study <input type="radio"><br />
-		Hall <input type="radio"><br />
-		Lounge <input type="radio"><br />
-		Library <input type="radio"><br />
-		Billiard Room <input type="radio"><br />
-		Dining Room <input type="radio"><br />
-		Conservatory <input type="radio"><br />
-		Ballroom <input type="radio"><br />
-		Kitchen <input type="radio"><br />
-	</div>
-	<div style="text-align:left;float:left;width:50%;">
-		<span style="font-weight:bold;">Weapons</span><br />
-		Rope <input type="radio"><br />
-		Lead Pipe <input type="radio"><br />
-		Knife <input type="radio"><br />
-		Wrench <input type="radio"><br />
-		Candlestick <input type="radio"><br />
-		Revolver <input type="radio"><br />
-		<br />
-		Notes:
-		<textarea>
-		
-		</textarea><br />
-		<div style="float:left;text-align:center;">
-			<div class="button_small floatnone"><a class="buttonlink" href="" onClick="window.history.back();return false;">Back</a></div>
+	<div class="notebook-container">
+		<div class="notebook-item">
+			<span style="font-weight:bold;">Suspects</span><br />
+			<input type="checkbox"> Colonel Mustard<br />
+			<input type="checkbox"> Miss Scarlet<br />
+			<input type="checkbox"> Professor Plum<br />
+			<input type="checkbox"> Mr. Green<br />
+			<input type="checkbox"> Mrs. White<br />
+			<input type="checkbox"> Mrs. Peacock<br />
+			<br />
+			<span style="font-weight:bold;">Rooms</span><br />
+			<input type="checkbox"> Study <br />
+			<input type="checkbox"> Hall <br />
+			<input type="checkbox"> Lounge <br />
+			<input type="checkbox"> Library <br />
+			<input type="checkbox"> Billiard Room <br />
+			<input type="checkbox"> Dining Room <br />
+			<input type="checkbox"> Conservatory <br />
+			<input type="checkbox"> Ballroom <br />
+			<input type="checkbox"> Kitchen <br />
 		</div>
+		<div class="notebook-item">
+			<span style="font-weight:bold;">Weapons</span><br />
+			<input type="checkbox"> Rope <br />
+			<input type="checkbox"> Lead Pipe <br />
+			<input type="checkbox"> Knife <br />
+			<input type="checkbox"> Wrench <br />
+			<input type="checkbox"> Candlestick <br />
+			<input type="checkbox"> Revolver <br />
+			<br />
+			Notes:<br/>
+			<textarea name="notes" rows="13" cols="25">
+		
+			</textarea><br />
+		</div>
+		<div class="button_small floatcenter"><a class="buttonlink" href="" onClick="window.history.back();return false;">Back</a></div>
 	</div>
 	</form>
 </body>

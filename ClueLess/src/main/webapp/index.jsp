@@ -5,8 +5,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>ClueLess Game</title>
 </head>
-<body style="text-align:center;">
-	<h1>ClueLess</h1>
-	<iframe src="mainmenu" width="900" height="800" style="border:0;"></iframe>
+<body style="text-align:center">
+	<img src="resources/images/Header_Logo-small.jpg"  style="border:0;"></br>
+	<iframe src="mainmenu" width="900" height="900" style="border:0;"></iframe>
 </body>
+<footer class="footer">J-Cubed, Inc.</footer>
 </html>

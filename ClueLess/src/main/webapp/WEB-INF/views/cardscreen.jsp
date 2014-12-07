@@ -13,10 +13,14 @@
 </head>
 <body>	
 	<h2>Card Screen</h2>
-	<div style="float:left;width:60%;">
-		Card 1<br />
-		Card 2<br />
-		Card 3<br />
+	<div style="float:left;width:60%;text-align:left;">
+		<c:if test="${not empty cards}">
+			<ul>
+				<c:forEach var="card" items="${cards}">
+					<li>${card}</li>
+				</c:forEach>
+			</ul>
+		</c:if>
 	</div>
 	<div style="float:right;width:40%;">
 		<div class="button_small"><a class="buttonlink" href="" onClick="location.href='detectivenotebook';return false;">Detective Notebook</a></div>

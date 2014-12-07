@@ -17,7 +17,7 @@
 		<form action="" method="get">
 		Card:<br />
 		<select name="card">
-			<option value="">< Card ></option>
+			<option value="">- Card -</option>
 			<option value="card1">Card 1</option>
 			<option value="card2">Card 2</option>
 			<option value="card3">Card 3</option>

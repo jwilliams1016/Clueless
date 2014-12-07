@@ -15,9 +15,13 @@
 	<h2>Confidential "Case File"</h2>
 	<h3>Congratulations, you have won the game!</h3>
 	<div style="float:left;text-align:left;">
-		Card 1<br />
-		Card 2<br />
-		Card 3<br />
+		<c:if test="${not empty casefile}">
+			<ul>
+				<c:forEach var="card" items="${casefile}">
+					<li>${card}</li>
+				</c:forEach>
+			</ul>
+		</c:if>
 	</div>
 	<div style="float:right;">
 		<div class="button_small"><a class="buttonlink" href="" onClick="location.href='mainmenu';return false;">Exit Game</a></div>

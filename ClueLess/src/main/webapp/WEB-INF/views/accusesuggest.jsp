@@ -10,42 +10,47 @@
 <body>	
 	<h2>${type} Screen</h2>
 	<div style="float:left;width:60%;text-align:left;">
-		<form id="accusesuggestForm" method="get" action="">
+		<form id="accusesuggestForm" method="post" action="">
 		Character:<br />
 		<select name="character">
-			<option value="">< Character ></option>
-			<option value="clnmustrd">Colonel Mustard</option>
-			<option value="msscarl">Miss Scarlet</option>
-			<option value="profplum">Professor Plum</option>
-			<option value="mrgrn">Mr. Green</option>
-			<option value="mrswht">Mrs. White</option>
-			<option value="mrspea">Mrs. Peacock</option>
+			<c:if test="${not empty players}">
+				<c:set var="count" value="0" scope="page" />
+				<c:forEach var="player" items="${players}">
+					<c:set var="count" value="${count + 1}" scope="page"/>
+					<option value="${count}">${player}</option>
+				</c:forEach>
+			</c:if>
 		</select><br />
 		<br />
 		Weapon:<br />
 		<select name="weapon">
-			<option value="">< Weapon ></option>
-			<option value="rope">Rope</option>
-			<option value="pipe">Lead Pipe</option>
-			<option value="knife">Knife</option>
-			<option value="wrench">Wrench</option>
-			<option value="cndlst">Candlestick</option>
-			<option value="rvlvr">Revolver</option>
+			<c:if test="${not empty weapons}">
+				<c:set var="count" value="0" scope="page" />
+				<c:forEach var="weapon" items="${weapons}">
+					<c:set var="count" value="${count + 1}" scope="page"/>
+					<option value="${count}">${weapon}</option>
+				</c:forEach>
+			</c:if>
 		</select><br />
 		<br />
 		Room:<br />
-		<select name="room">
-			<option value="">< Room ></option>
-			<option value="stdy">Study</option>
-			<option value="hall">Hall</option>
-			<option value="lnge">Lounge</option>
-			<option value="libr">Library</option>
-			<option value="blrrm">Billiard Room</option>
-			<option value="dngrm">Dining Room</option>
-			<option value="cnsrv">Conservatory</option>
-			<option value="blrm">Ballroom</option>
-			<option value="kitch">Kitchen</option>
-		</select><br />
+		<c:choose>
+			<c:when test="${type == 'Suggest'}">
+				<input type="hidden" name="room" value="0"><span style="font-weight:bold;">${currentPlace}</span>
+			</c:when>
+			<c:otherwise>
+				<select name="room">
+					<c:if test="${not empty places}">
+						<c:set var="count" value="0" scope="page" />
+						<c:forEach var="place" items="${places}">
+							<c:set var="count" value="${count + 1}" scope="page"/>
+							<option value="${count}">${place}</option>
+						</c:forEach>
+					</c:if>
+				</select>
+			</c:otherwise>
+		</c:choose>
+		<br />
 		<br />
 		<div class="button_small"><a class="buttonlink" href="" onClick="document.getElementById('accusesuggestForm').submit();return false;">${type}</a></div>
 		</form>

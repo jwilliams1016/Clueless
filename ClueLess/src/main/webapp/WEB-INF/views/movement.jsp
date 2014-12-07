@@ -17,24 +17,21 @@
 <body>	
 	<h2>Move</h2>
 	<div>
-		<form method="get" action="">
+		<form method="post" action="" id="locationForm">
 		Location:<br />
 		<select name="location">
-			<option value="Room / Hallway">Room / Hallway</option>
-			<option value="stdy">Study</option>
-			<option value="hall">Hall</option>
-			<option value="lnge">Lounge</option>
-			<option value="libr">Library</option>
-			<option value="blrrm">Billiard Room</option>
-			<option value="dngrm">Dining Room</option>
-			<option value="cnsrv">Conservatory</option>
-			<option value="blrm">Ballroom</option>
-			<option value="kitch">Kitchen</option>
+			<c:if test="${not empty options}">
+				<c:set var="count" value="0" scope="page" />
+				<c:forEach var="option" items="${options}">
+					<c:set var="count" value="${count + 1}" scope="page"/>
+					<option value="${count}">${option}</option>
+				</c:forEach>
+			</c:if>
 		</select>
 		</form>
 	</div>
 	<div>
-		<div class="button_small floatleft"><a class="buttonlink" href="" onClick="location.href='gamescreen';return false;">Confirm</a></div>
+		<div class="button_small floatleft"><a class="buttonlink" href="" onClick="document.getElementById('locationForm').submit();return false;">Confirm</a></div>
 		<div class="button_small floatright"><a class="buttonlink" href="" onClick="location.href='gamescreen';return false;">Cancel</a></div>
 	</div>
 </body>

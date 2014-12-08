@@ -110,6 +110,7 @@ public class clueLessController {
 		}
 		status = gameBoard.getStatus();
 		moveHistory = gameBoard.getMoveHistory();
+		ArrayList<String> cards = gameBoard.getCards();
 		
 		System.out.println(errorMessage);
 		
@@ -118,6 +119,8 @@ public class clueLessController {
 		errorMessage = "";
 		mv.addObject("status", status);
 		mv.addObject("moveHistory", moveHistory);
+		mv.addObject("cards", cards);
+		
 		if (gameBoard.hasMoved())
 			mv.addObject("allowMove", false);
 		else

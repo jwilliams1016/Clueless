@@ -1,5 +1,15 @@
-h1, h2{
+h1, h2, h3, footer{
 	color: #3498db;
+	text-align: center;
+}
+
+img.main {
+	src: url("../../resources/images/Header_Logo-small_v2.jpg");
+}
+.center {
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
 }
 
 .mainmenu-container {
@@ -22,8 +32,8 @@ h1, h2{
   flex-flow: row-wrap;
   -webkit-flex-flow: row-wrap;
   align-items: flex-start;
-  -webkit-align-items: flex-start;
-  justify-content: space-between;
+  -webkit-justify-content: center;
+  justify-content: center;
 }
 
 .wrapper > * {
@@ -79,24 +89,9 @@ button {
 	text-decoration: none;
 }
 
-.button_small {
-	/* width:240px;
-	height:60px;
-	line-height:60px;
-	background:#4f81bd;
-	border:solid #385d8a 1px;
-	border-radius:10px;
-	color:#0000ff;
-	float:right;
-	margin:20px;
-	text-align: center; */
-	color: white;
-	border-radius: 10px;
-	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-	background: #4f81bd;
-	margin: 20px;
-	text-align: center;
-
+.button-disabled {
+	background:#f8f8f8;
+	color:#888;
 }
 
 .buttonlink { 
@@ -129,24 +124,30 @@ button:hover{
 .nav-button {
 	margin: 2px;
 }
+
 .aside-left {
-	background: white;
+	position: relative;
+	top: 5px;
+	left: 5px
 }
 
 .aside-right {
-	background: white;
+
+/* 	background: yellow; */
 }
 
-@media all and (min-width: 600px){
+/* @media all and (min-width: 600px){
 	.aside { flex: 1 auto;}
+} */
+
+@media all and (min-width: 200px){
+	.aside {flex: 0 auto;}
+	.aside-right {flex: 0 auto;}
+	.aside-left { order: 1;}
+	.aside-right {order: 2;}
+
 }
 
-@media all and (min-width: 800px){
-	.aside {flex: 1 auto;}
-	.aside-right {flex: 3 auto;}
-	.aside-left {order: 1;}
-	.aside-right { order: 2;}
-}
 
 .status, .movehistory, .cards {
 	height:150px;
@@ -165,3 +166,4 @@ button:hover{
 .bottom {
 	justify-content: space-between;
 }
+

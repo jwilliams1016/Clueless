@@ -1,0 +1,142 @@
+.gameboard {
+	background: url("../../resources/images/GameBoard_empty2.png");
+/* 	background: blue; */
+/* 	background-size: 620px 570px; */
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 575px;
+	width: 800px;
+	position: relative;
+}
+
+.token-disabled {
+	color: #3498db;
+}
+
+.abs {
+	position: absolute;
+}
+
+.study {
+	top: 30px;
+	left: 95px;
+}
+
+.hall {
+	top: 30px;
+	left: 330px;
+}
+.lounge {
+	top: 30px;
+	left: 555px
+}
+.library {
+	top: 240px;
+	left: 95px;
+}
+.billiard {
+	top: 240px;
+	left: 330px;
+}
+.dining {
+	top: 240px;
+	left: 555px;
+}
+.conservatory {
+	top: 440px;
+	left: 95px;
+}
+.ballroom {
+	top: 440px;
+	left: 330px;
+}
+.kitchen {
+	top: 480px;
+	left: 555px;
+}
+.hwy1{
+
+ 	top: 60px;
+	left: 273px;
+ }
+ 
+.hwy2{
+ 	top: 60px;
+	left: 500px;
+ }
+ 
+.hwy6{
+ 	top: 270px;
+	left: 273px;
+ }
+ 
+.hwy7{
+ 	top: 270px;
+	left: 500px;
+ }
+ 
+.hwy11{
+	top: 495px;
+	left: 273px;
+}
+.hwy12{
+	top: 495px;
+	left: 500px;
+}
+
+.hwy3 {
+	top: 170px;
+	left: 160px;
+	
+}
+.hwy4 {
+	top: 170px;
+	left: 387px;
+	
+}
+.hwy5 {
+	top: 170px;
+	left: 615px;
+	
+}
+
+.hwy8 {
+	top: 380px;
+	left: 160px;
+	
+}
+
+.hwy9 {
+	top: 380px;
+	left: 387px;
+	
+}
+.hwy10 {
+	top: 380px;
+	left: 615px;
+	
+}
+#scarlet {
+ 	content: url("../../resources/images/Scarlet_small.png");
+ }
+
+#mustard {
+	content: url("../../resources/images/Mustard_small.png");
+}
+
+#green {
+	content: url("../../resources/images/Green_small.png");
+}
+
+#white {
+	content: url("../../resources/images/White_small.png");
+}
+
+#plum {
+	content: url("../../resources/images/Plum_small.png");
+}
+
+#peacock {
+	content: url("../../resources/images/Peacock_small.png");
+}

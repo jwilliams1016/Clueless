@@ -28,4 +28,5 @@
 		<button class="button floatright" onClick="location.href='mainmenu';return false;">Main Menu</button>
 	</div>
 </body>
+<footer class="footer">J-Cubed, Inc. 2014</footer>
 </html>

@@ -29,4 +29,5 @@
 	<button class="button" onClick="location.href='mainmenu';return false;">Main Menu</button>
 	<button class="button" onClick="document.getElementById('type').value='public';document.getElementById('joinForm').submit();return false;">Join Public Game</button>
 </body>
+<footer class="footer">J-Cubed, Inc. 2014</footer>
 </html>

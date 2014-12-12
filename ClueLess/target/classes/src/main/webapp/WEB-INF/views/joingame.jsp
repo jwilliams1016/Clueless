@@ -18,7 +18,7 @@
 	<img src="resources/images/Header_Logo-small.jpg"  style="border:0;">
 	<h2>Join Game</h2>
 	<div>
-		<form id="joinForm" method="post" action="">
+		<form id="joinForm" method="get" action="">
 		Game Name: <input type="text" name="name" value="${name}"><br />
 		Password: <input type="password" name="password" value="${password}"><br />
 		<input id="type" type="hidden" name="type"  value="">

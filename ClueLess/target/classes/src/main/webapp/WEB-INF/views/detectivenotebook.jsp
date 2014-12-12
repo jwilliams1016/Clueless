@@ -9,53 +9,47 @@
 <style type="text/css">
 	.button_small { width:240px;height:60px;line-height:60px;background:#4f81bd;border:solid #385d8a 1px;border-radius:10px;color:#0000ff;float:left;margin:20px; }
 	.buttonlink { color:#fff;font-size:24px; }
-	.floatnone { float:none; }
 </style>
 </head>
 <body>	
 	<h2>Detective Notebook</h2>
-	<form id="frmDetNote" action="" method="post">
-	<div class="notebook-container" style="float:left;width:60%;">
+	<form action="" method="get">
+	<div class="notebook-container">
 		<div class="notebook-item">
 			<span style="font-weight:bold;">Suspects</span><br />
-			<input type="checkbox" name="s" value="0" <c:if test="${s[0]}">checked</c:if>> Colonel Mustard<br />
-			<input type="checkbox" name="s" value="1" <c:if test="${s[1]}">checked</c:if>> Miss Scarlet<br />
-			<input type="checkbox" name="s" value="2" <c:if test="${s[2]}">checked</c:if>> Professor Plum<br />
-			<input type="checkbox" name="s" value="3" <c:if test="${s[3]}">checked</c:if>> Mr. Green<br />
-			<input type="checkbox" name="s" value="4" <c:if test="${s[4]}">checked</c:if>> Mrs. White<br />
-			<input type="checkbox" name="s" value="5" <c:if test="${s[5]}">checked</c:if>> Mrs. Peacock<br />
+			<input type="checkbox"> Colonel Mustard<br />
+			<input type="checkbox"> Miss Scarlet<br />
+			<input type="checkbox"> Professor Plum<br />
+			<input type="checkbox"> Mr. Green<br />
+			<input type="checkbox"> Mrs. White<br />
+			<input type="checkbox"> Mrs. Peacock<br />
 			<br />
 			<span style="font-weight:bold;">Rooms</span><br />
-			<input type="checkbox" name="r" value="0" <c:if test="${r[0]}">checked</c:if>> Study <br />
-			<input type="checkbox" name="r" value="1" <c:if test="${r[1]}">checked</c:if>> Hall <br />
-			<input type="checkbox" name="r" value="2" <c:if test="${r[2]}">checked</c:if>> Lounge <br />
-			<input type="checkbox" name="r" value="3" <c:if test="${r[3]}">checked</c:if>> Library <br />
-			<input type="checkbox" name="r" value="4" <c:if test="${r[4]}">checked</c:if>> Billiard Room <br />
-			<input type="checkbox" name="r" value="5" <c:if test="${r[5]}">checked</c:if>> Dining Room <br />
-			<input type="checkbox" name="r" value="6" <c:if test="${r[6]}">checked</c:if>> Conservatory <br />
-			<input type="checkbox" name="r" value="7" <c:if test="${r[7]}">checked</c:if>> Ballroom <br />
-			<input type="checkbox" name="r" value="8" <c:if test="${r[8]}">checked</c:if>> Kitchen <br />
+			<input type="checkbox"> Study <br />
+			<input type="checkbox"> Hall <br />
+			<input type="checkbox"> Lounge <br />
+			<input type="checkbox"> Library <br />
+			<input type="checkbox"> Billiard Room <br />
+			<input type="checkbox"> Dining Room <br />
+			<input type="checkbox"> Conservatory <br />
+			<input type="checkbox"> Ballroom <br />
+			<input type="checkbox"> Kitchen <br />
 		</div>
 		<div class="notebook-item">
 			<span style="font-weight:bold;">Weapons</span><br />
-			<input type="checkbox" name="w" value="0" <c:if test="${w[0]}">checked</c:if>> Rope <br />
-			<input type="checkbox" name="w" value="1" <c:if test="${w[1]}">checked</c:if>> Lead Pipe <br />
-			<input type="checkbox" name="w" value="2" <c:if test="${w[2]}">checked</c:if>> Knife <br />
-			<input type="checkbox" name="w" value="3" <c:if test="${w[3]}">checked</c:if>> Wrench <br />
-			<input type="checkbox" name="w" value="4" <c:if test="${w[4]}">checked</c:if>> Candlestick <br />
-			<input type="checkbox" name="w" value="5" <c:if test="${w[5]}">checked</c:if>> Revolver <br />
+			<input type="checkbox"> Rope <br />
+			<input type="checkbox"> Lead Pipe <br />
+			<input type="checkbox"> Knife <br />
+			<input type="checkbox"> Wrench <br />
+			<input type="checkbox"> Candlestick <br />
+			<input type="checkbox"> Revolver <br />
 			<br />
 			Notes:<br/>
 			<textarea name="notes" rows="13" cols="25">
-				${notes}
+		
 			</textarea><br />
-			<input type="hidden" id="referrer" name="referrer" value="${referrer}">
 		</div>
-	</div>
-	<div style="float:right;width:40%;">
-		<div class="button_small floatnone"><a class="buttonlink" href="" onClick="document.getElementById('frmDetNote').submit();return false;">Save</a></div>
-		<div class="button_small floatnone"><a class="buttonlink" href="" onClick="location.href=document.getElementById('referrer').value;return false;">Back</a></div>
-		<div class="button_small floatnone"><a class="buttonlink" href="" onClick="location.href='gamescreen';return false;">Return to Game</a></div>
+		<div class="button_small floatcenter"><a class="buttonlink" href="" onClick="window.history.back();return false;">Back</a></div>
 	</div>
 	</form>
 </body>

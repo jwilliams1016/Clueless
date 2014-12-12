@@ -10,7 +10,7 @@
 <body>	
 	<img src="resources/images/Header_Logo-small.jpg"  style="border:0;">
 	<h2>${type} Screen</h2>
-	<div style="float:left;width:60%;text-align:left;">
+	<div>
 		<form id="accusesuggestForm" method="post" action="">
 		Character:<br />
 		<select name="character">
@@ -61,4 +61,5 @@
 		<button onClick="location.href='gamescreen';return false;">Return to Game</button>
 	</div>
 </body>
+<footer class="footer">J-Cubed, Inc. 2014</footer>
 </html>

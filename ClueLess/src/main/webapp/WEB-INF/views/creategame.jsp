@@ -18,7 +18,7 @@
 	<img src="resources/images/Header_Logo-small.jpg"  style="border:0;">	
 	<h2>Create Game</h2>
 	<div>
-		<form id="createForm" method="get" action="">
+		<form id="createForm" method="post" action="">
 		Game Security: <select name="type"><option value="public" <c:if test="${type=='public'}">selected</c:if>>Public</option><option value="private" <c:if test="${type=='private'}">selected</c:if>>Private</option></select><br />
 		Game Name: <input type="text" name="name" value="${name}"><br />
 		Password: <input type="password" name="password" value=""><br />
@@ -28,5 +28,4 @@
 		<button class="button floatright" onClick="location.href='mainmenu';return false;">Main Menu</button>
 	</div>
 </body>
-<footer class="footer">J-Cubed, Inc. 2014</footer>
 </html>

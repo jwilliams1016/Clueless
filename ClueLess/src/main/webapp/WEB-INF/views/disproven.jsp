@@ -6,7 +6,10 @@
 <link href="<c:url value='/resources/css/main.css'/>" rel="stylesheet" type="text/css"/>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Main Menu</title>
-
+<style type="text/css">
+	.button_small { width:240px;height:60px;line-height:60px;background:#4f81bd;border:solid #385d8a 1px;border-radius:10px;color:#0000ff;float:left;margin:20px; }
+	.buttonlink { color:#fff;font-size:24px; }
+</style>
 </head>
 <body>	
 	<h2>Disproven Screen</h2>
@@ -14,8 +17,7 @@
 		You have been disproven:<br />
 		-- Card --<br />
 		<br />
-		<button onClick="location.href='gamescreen';return false;">Close</button>
+		<div class="button_small"><a class="buttonlink" href="" onClick="location.href='gamescreen';return false;">Close</a></div>
 	</div>
 </body>
-<footer class="footer">J-Cubed, Inc. 2014</footer>
 </html>

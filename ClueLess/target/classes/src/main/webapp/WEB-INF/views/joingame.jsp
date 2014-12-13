@@ -18,7 +18,7 @@
 	<img src="resources/images/Header_Logo-small.jpg"  style="border:0;">
 	<h2>Join Game</h2>
 	<div>
-		<form id="joinForm" method="get" action="">
+		<form id="joinForm" method="post" action="">
 		Game Name: <input type="text" name="name" value="${name}"><br />
 		Password: <input type="password" name="password" value="${password}"><br />
 		<input id="type" type="hidden" name="type"  value="">
@@ -29,4 +29,5 @@
 	<button class="button" onClick="location.href='mainmenu';return false;">Main Menu</button>
 	<button class="button" onClick="document.getElementById('type').value='public';document.getElementById('joinForm').submit();return false;">Join Public Game</button>
 </body>
+<footer class="footer">J-Cubed, Inc. 2014</footer>
 </html>

@@ -2,16 +2,20 @@ package com.clueless;
 
 public class Player {
 		String name;
+		String codename;
+		String id;
 		Location location;
 		Card[] cards = new Card[3];
 		boolean suggestionMadeHere;
 		boolean hasTurn;
 		boolean moved;
-		boolean disabled = false;
+		boolean disabled = true;
+		private boolean isAdmin = false;
 		Card[] suggestion = new Card[3];
 		Card[] accusation = new Card[3];
-		public Player(String name, Location initialLocation) {
+		public Player(String name, String codename, Location initialLocation) {
 			this.name = name;
+			this.codename = codename;
 			location = initialLocation;
 		}//end constructor
 		public void move(Location newLocation) {
@@ -82,4 +86,16 @@ public class Player {
 		public Card[] getCards(){
 			return cards;
 		}//end showCards()
+		public String getId() {
+			return id;
+		}
+		public void setId(String s) {
+			id = s;
+		}
+		public void makeAdmin() {
+			isAdmin = true;
+		}
+		public boolean isAdmin() {
+			return isAdmin;
+		}
 	}//end Player class

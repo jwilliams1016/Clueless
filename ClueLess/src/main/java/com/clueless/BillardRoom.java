@@ -1,8 +1,8 @@
 package com.clueless;
 
 public class BillardRoom extends Location {
-		public BillardRoom (String name) {
-			super(name);
+		public BillardRoom (String name, String codename) {
+			super(name, codename);
 		}//end constructor
 		public void setMoveOptions(Location option1, Location option2, Location option3, Location option4) {
 			adjacent[0] = option1;

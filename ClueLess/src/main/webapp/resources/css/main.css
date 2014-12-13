@@ -108,6 +108,11 @@ button:hover{
   	text-decoration: none;
 }
 
+.button-disabled:hover {
+	background:#f8f8f8;
+	color:#888;
+}
+
 .top {
 	display: -webkit-box;
   	display: -moz-box;

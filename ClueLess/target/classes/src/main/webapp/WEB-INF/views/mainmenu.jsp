@@ -4,6 +4,7 @@
 <html>
 <head>
 <link href="<c:url value='/resources/css/main.css'/>" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resources/js/scripts.js"></script>
 <!--
 <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
 
@@ -19,7 +20,9 @@
 	<div class="mainmenu-container">
 		<button onClick="location.href='creategame';return false;">Create Game</button>
 		<button onClick="location.href='joingame';return false;">Join Game</button>
-		<button onClick="location.href='gamerules';return false;">Game Rules</button>
+		<button onClick="popUp('gamerules')">Help</button>
+<!-- 		<button onClick="location.href='gamerules';return false;">Help</button> -->
 	</div>
 </body>
+<footer class="footer">J-Cubed, Inc. 2014</footer>
 </html>

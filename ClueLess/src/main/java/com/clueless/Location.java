@@ -2,11 +2,13 @@ package com.clueless;
 
 public class Location {
 		String name;
+		String codename;
 		Location[] adjacent = new Location[4];
 		boolean occupied = false;
 		Player occupant;
-		public Location(String name) {
+		public Location(String name, String codename) {
 			this.name = name;
+			this.codename = codename;
 		}//end constructor
 		public void setOccupied(boolean occupied) {
 			this.occupied = occupied;

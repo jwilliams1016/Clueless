@@ -30,4 +30,5 @@
 		<button onClick="location.href='gamescreen';return false;">Cancel</button>
 	</div>
 </body>
+<footer class="footer">J-Cubed, Inc. 2014</footer>
 </html>

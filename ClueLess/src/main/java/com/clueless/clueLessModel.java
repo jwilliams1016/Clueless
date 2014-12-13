@@ -1,88 +1,111 @@
 package com.clueless;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 import java.util.ArrayList;
 
 public class clueLessModel {
-	private static clueLessModel instance = null;
-	private static ArrayList<String> status;
-	private static ArrayList<String> moveHistory;
+	private ArrayList<String> status;
+	private ArrayList<String> moveHistory;
 
-	static int turn;
-	static boolean active;
-	static CaseFile caseFile;
-	static Card studyCard;
-	static Card hallCard;
-	static Card loungeCard;
-	static Card libraryCard;
-	static Card billardRoomCard;
-	static Card diningRoomCard;
-	static Card conservatoryCard;
-	static Card ballRoomCard;
-	static Card kitchenCard;
-	static Card candleStick;
-	static Card wrench;
-	static Card rope;
-	static Card revolver;
-	static Card knife;
-	static Card leadPipe;
-	static Card missS;
-	static Card profP;
-	static Card colM;
-	static Card mrsP;
-	static Card mrG;
-	static Card mrsW;
-	static Room study;
-	static Room hall;
-	static Room lounge;
-	static Room library;
-	static BillardRoom billardRoom;
-	static Room diningRoom;
-	static Room conservatory;
-	static Room ballroom;
-	static Room kitchen;
-	static Player player1;
-	static Player player2;
-	static Player player3;
-	static Player player4;
-	static Player player5;
-	static Player player6;
-	static Player[] playerList;
+	private int turn;
+	private boolean active;
+	private boolean endgame;
+	private CaseFile caseFile;
+	private Card studyCard;
+	private Card hallCard;
+	private Card loungeCard;
+	private Card libraryCard;
+	private Card billardRoomCard;
+	private Card diningRoomCard;
+	private Card conservatoryCard;
+	private Card ballRoomCard;
+	private Card kitchenCard;
+	private Card candleStick;
+	private Card wrench;
+	private Card rope;
+	private Card revolver;
+	private Card knife;
+	private Card leadPipe;
+	private Card missS;
+	private Card profP;
+	private Card colM;
+	private Card mrsP;
+	private Card mrG;
+	private Card mrsW;
+	private Room study;
+	private Room hall;
+	private Room lounge;
+	private Room library;
+	private BillardRoom billardRoom;
+	private Room diningRoom;
+	private Room conservatory;
+	private Room ballroom;
+	private Room kitchen;
+	private Player player1;
+	private Player player2;
+	private Player player3;
+	private Player player4;
+	private Player player5;
+	private Player player6;
+	private Player[] playerList;
+	private Location[] locationList;
+	private int numActivePlayers;
 	
-	public static synchronized clueLessModel getInstance() {
-        if (instance == null) {
-            instance = new clueLessModel();
-        }
- 
-        return instance;
-    }
-	
-	private clueLessModel() {
+	public clueLessModel() {
 		status = new ArrayList<String>();
-		status.add("***Begin Game***");
+		status.add("***Game Created***");
+		status.add("***Waiting For Players***");
 		
 		moveHistory = new ArrayList<String>();
-		study = new Room("Study");
-		hall = new Room("Hall");
-		lounge = new Room("Lounge");
-		library = new Room("Library");
-		billardRoom = new BillardRoom("Billard Room");
-		diningRoom = new Room("Dining Room");
-		conservatory = new Room("Conservatory");
-		ballroom = new Room("Ballroom");
-		kitchen = new Room("kitchen");
-		Location hallway1 = new Location("Hallway One");
-		Location hallway2 = new Location("Hallway Two");
-		Location hallway3 = new Location("Hallway Three");
-		Location hallway4 = new Location("Hallway Four");
-		Location hallway5 = new Location("Hallway Five");
-		Location hallway6 = new Location("Hallway Six");
-		Location hallway7 = new Location("Hallway Seven");
-		Location hallway8 = new Location("Hallway Eight");
-		Location hallway9 = new Location("Hallway Nine");
-		Location hallway10 = new Location("Hallway Ten");
-		Location hallway11 = new Location("Hallway Eleven");
-		Location hallway12 = new Location("Hallway Twelve");
+		
+		study = new Room("Study","study");
+		hall = new Room("Hall","hall");
+		lounge = new Room("Lounge","lounge");
+		library = new Room("Library","library");
+		billardRoom = new BillardRoom("Billard Room","billiard");
+		diningRoom = new Room("Dining Room","dining");
+		conservatory = new Room("Conservatory","conservatory");
+		ballroom = new Room("Ballroom","ballroom");
+		kitchen = new Room("kitchen","kitchen");
+		Location hallway1 = new Location("Hallway One","hwy1");
+		Location hallway2 = new Location("Hallway Two","hwy2");
+		Location hallway3 = new Location("Hallway Three","hwy3");
+		Location hallway4 = new Location("Hallway Four","hwy4");
+		Location hallway5 = new Location("Hallway Five","hwy5");
+		Location hallway6 = new Location("Hallway Six","hwy6");
+		Location hallway7 = new Location("Hallway Seven","hwy7");
+		Location hallway8 = new Location("Hallway Eight","hwy8");
+		Location hallway9 = new Location("Hallway Nine","hwy9");
+		Location hallway10 = new Location("Hallway Ten","hwy10");
+		Location hallway11 = new Location("Hallway Eleven","hwy11");
+		Location hallway12 = new Location("Hallway Twelve","hwy12");
+		
+		locationList = new Location[21];
+		locationList[0] = study;
+		locationList[1] = hall;
+		locationList[2] = lounge;
+		locationList[3] = library;
+		locationList[4] = billardRoom;
+		locationList[5] = diningRoom;
+		locationList[6] = conservatory;
+		locationList[7] = ballroom;
+		locationList[8] = kitchen;
+		
+		locationList[9] = hallway1;
+		locationList[10] = hallway2;
+		locationList[11] = hallway3;
+		locationList[12] = hallway4;
+		locationList[13] = hallway5;
+		locationList[14] = hallway6;
+		locationList[15] = hallway7;
+		locationList[16] = hallway8;
+		locationList[17] = hallway9;
+		locationList[18] = hallway10;
+		locationList[19] = hallway11;
+		locationList[20] = hallway12;
+		
 		study.setMoveOptions(hallway1, hallway3, billardRoom);
 		hallway1.setMoveOptions(study, hall);
 		hall.setMoveOptions(hallway1, hallway2, hallway4);
@@ -101,12 +124,13 @@ public class clueLessModel {
 		hallway11.setMoveOptions(conservatory, ballroom);
 		ballroom.setMoveOptions(hallway11, hallway9, hallway12);
 		kitchen.setMoveOptions(hallway12, hallway10, billardRoom);
-		player1 = new Player("Miss Scarlet", hallway2);
-		player2 = new Player("Prof. Plum", hallway3);
-		player3 = new Player("Col. Mustard", hallway5);
-		player4 = new Player("Mrs. Peacock", hallway8);
-		player5 = new Player("Mr. Green", hallway11);
-		player6 = new Player("Mrs. White", hallway12);
+		
+		player1 = new Player("Miss Scarlet", "scarlet", hallway2);
+		player2 = new Player("Prof. Plum", "plum", hallway3);
+		player3 = new Player("Col. Mustard", "mustard", hallway5);
+		player4 = new Player("Mrs. Peacock", "peacock", hallway8);
+		player5 = new Player("Mr. Green", "green", hallway11);
+		player6 = new Player("Mrs. White", "white", hallway12);
 		
 		playerList = new Player[6];
 		playerList[0] = player1;
@@ -116,12 +140,14 @@ public class clueLessModel {
 		playerList[4] = player5;
 		playerList[5] = player6;
 		
-		moveHistory.add(player1.name + " started in " + hallway2.name);
-		moveHistory.add(player2.name + " started in " + hallway3.name);
-		moveHistory.add(player3.name + " started in " + hallway5.name);
-		moveHistory.add(player4.name + " started in " + hallway8.name);
-		moveHistory.add(player5.name + " started in " + hallway11.name);
-		moveHistory.add(player6.name + " started in " + hallway12.name);
+		numActivePlayers = 0;
+		
+		moveHistory.add(player1.name + " is in " + hallway2.name);
+		moveHistory.add(player2.name + " is in " + hallway3.name);
+		moveHistory.add(player3.name + " is in " + hallway5.name);
+		moveHistory.add(player4.name + " is in " + hallway8.name);
+		moveHistory.add(player5.name + " is in " + hallway11.name);
+		moveHistory.add(player6.name + " is in " + hallway12.name);
 		
 		studyCard = new Card("Study", CardType.ROOM);
 		hallCard = new Card("Hall", CardType.ROOM);
@@ -184,12 +210,12 @@ public class clueLessModel {
 		player6.cards[0] = toPlayers[15];
 		player6.cards[1] = toPlayers[16];
 		player6.cards[2] = toPlayers[17];
-		turn = 1;
+		turn = 0;
 		active = false;
+		endgame = false;
 		System.out.println();
 		System.out.println("CLUELESS: by J-Cubed");
 		System.out.println();
-		beginTurn();
 	}//end main()
 	
 	public ArrayList<String> getStatus() {
@@ -200,7 +226,7 @@ public class clueLessModel {
 		return moveHistory;
 	}
 	
-	public static Player getCurrentPlayer() {
+	public Player getCurrentPlayer() {
 		switch(turn){
 			case 1: return player1;
 			case 2: return player2;
@@ -270,7 +296,7 @@ public class clueLessModel {
 		System.out.println();
 		
 		active = false;
-		instance = null;
+		endgame = true;
 	}
 	
 	public boolean hasMoved() {
@@ -334,7 +360,7 @@ public class clueLessModel {
 				throw new Exception(errorMessage);
 			}//end if
 			else {
-				System.out.println("Move to:");
+				System.out.println("Can Move to:");
 				System.out.println();
 				
 				Location current =  player.getLocation();
@@ -345,6 +371,19 @@ public class clueLessModel {
 				boolean threeTrue = false;
 				Location four = options[0];
 				boolean fourTrue = false;
+				
+				System.out.print("1 = " + one.name + ", 2 = " + two.name);
+				if (options[2] != null){
+					three = options[2];
+					threeTrue = true;
+					System.out.print(", 3 = " + three.name);
+				}//end if
+				if (options[3] != null){
+					four = options[3];
+					fourTrue = true;
+					System.out.print(", 4 = " + four.name);
+				}//end if
+				System.out.println();
 
 				if (movePlace == 1){
 					player.move(one);
@@ -485,7 +524,7 @@ public class clueLessModel {
 		return currentPlace;
 	}
 	
-	public static boolean inRoom() {
+	public boolean inRoom() {
 		Player player = getCurrentPlayer();
 		
 		Location place = player.getLocation();
@@ -723,8 +762,27 @@ public class clueLessModel {
 		return false;
 	}
 	
-	public static boolean isGameActive() {
+	public boolean isActive() {
 		return active;
+	}
+	
+	public boolean isGamePlayable() {
+		if (getNumActivePlayers() >= 3 && !endgame) {
+			return true;
+		}
+		return false;
+	}
+	
+	public void startGame() throws Exception {
+		if (isGamePlayable()) {
+			turn = 1;
+			active = true;
+			beginTurn();
+			
+			status.add("***Game Started***");
+		} else {
+			throw new Exception("Game is not playable yet!");
+		}
 	}
 	
 	public ArrayList<String> getCaseFile() {
@@ -737,21 +795,100 @@ public class clueLessModel {
 		
 		return outputCards;
 	}
-			
-	public ArrayList<String> getCards() {
-		Player player = getCurrentPlayer();
+	
+	public Map<String, String> getLocations() {
+		Map<String, String> locations = new HashMap<String, String>();
 		
-		if(player.hasTurn){
-			Card[] playerCards = player.getCards();
-			ArrayList<String> outputCards = new ArrayList<String>();
+		for (Location l : locationList) {
+			String tmpPCodeName = "";
 			
-			for(Card x: playerCards){
-				outputCards.add(x.name);
-			}//end for
+			for (Player p : playerList) {
+				if (p.location.codename.equals(l.codename)) {
+					tmpPCodeName = p.codename;
+				}
+			}
 			
-			return outputCards;
+			locations.put(l.codename, tmpPCodeName);
 		}
 		
+		return locations;
+	}
+			
+	public ArrayList<String> getCards(String id) {
+		Player player = getPlayer(id);
+		
+		Card[] playerCards = player.getCards();
+		ArrayList<String> outputCards = new ArrayList<String>();
+			
+		for(Card x: playerCards){
+			outputCards.add(x.name);
+		}//end for
+			
+		return outputCards;
+	}
+	
+	public int getNumActivePlayers() {
+		return numActivePlayers;
+	}
+	
+	public boolean isMyTurn(String id) {
+		if (isActive()) {
+			Player p = getCurrentPlayer();
+			if (p.getId() != null && !p.getId().isEmpty() && p.getId().equals(id))
+				return true;
+		}
+		
+		return false;
+	}
+	
+	public void addPlayer(String id) throws Exception {
+		if (!isActive()) {
+			if (getNumActivePlayers() < 6) {
+				Player p = getPlayer(getNumActivePlayers()+1);
+				p.setId(id);
+				p.disabled = false;
+				numActivePlayers++;
+				
+				String statusMessage = "New player joined game as " + p.name + " - id # " + id;
+				
+				status.add(statusMessage);
+				System.out.println(statusMessage);
+				System.out.println();
+			} else {
+				String errorMessage = "The game is full!";
+				
+				System.out.println(errorMessage);
+				System.out.println();
+				
+				throw new Exception(errorMessage);
+			}
+		} else {
+			String errorMessage = "The game already started!";
+			
+			System.out.println(errorMessage);
+			System.out.println();
+			
+			throw new Exception(errorMessage);
+		}
+	}
+	
+	public Player getPlayer(String id) {
+		for (Player p : playerList) {
+			if (p.getId() != null && !p.getId().isEmpty() && p.getId().equals(id))
+				return p;
+		}
+		return null;
+	}
+	
+	public Player getPlayer(int position) {
+		switch(position){
+			case 1: return player1;
+			case 2: return player2;
+			case 3: return player3;
+			case 4: return player4;
+			case 5: return player5;
+			case 6: return player6;
+		}//end switch
 		return null;
 	}
 

@@ -5,11 +5,12 @@ public class Player {
 		String codename;
 		String id;
 		Location location;
-		Card[] cards = new Card[3];
+		Card[] cards = new Card[6];
 		boolean suggestionMadeHere;
 		boolean hasTurn;
-		boolean moved;
-		boolean disabled = true;
+		boolean beingMoved = false;
+		boolean disabled = false;
+		boolean notActivated = true;
 		private boolean isAdmin = false;
 		Card[] suggestion = new Card[3];
 		Card[] accusation = new Card[3];
@@ -19,16 +20,16 @@ public class Player {
 			location = initialLocation;
 		}//end constructor
 		public void move(Location newLocation) {
-			if(hasTurn && !moved) {
+			if (hasTurn || beingMoved){
 				location = newLocation;
 				suggestionMadeHere = false;
 			}//end if
 			else
-				System.out.println("You cannot move because it is not your turn.");
+				System.out.println("You cannot move because it is not your turn");
+			beingMoved = false;
 		}//end move()
 		public void endTurn() {
 			hasTurn = false;
-			moved = false;
 		}//end endTurn()
 		public void makeSuggestion(Card player, Card weapon, Card location) {
 			if(hasTurn && !suggestionMadeHere) {
@@ -52,7 +53,7 @@ public class Player {
 				System.out.println("You cannot make an accusation because it is not your turn.");
 		}//end makeAccusation()
 		public Card[] proveOrDisproveSuggestion(Card[] attemptedSuggestion) {
-			Card[] matches = new Card[3];
+			Card[] matches = new Card[6];
 			for (int i = 0; i < attemptedSuggestion.length; i++) {
 				for (int n = 0; n < cards.length; n++) {
 					if (attemptedSuggestion[i] == cards[n]) {
@@ -60,21 +61,8 @@ public class Player {
 					}//end if
 				}//end for
 			}//end for
-			if ((matches[0] == null) && (matches[1] == null) && (matches[2] == null))
+			if ((matches[0] == null) && (matches[1] == null) && (matches[2] == null) && (matches[3] == null) && (matches[4] == null) && (matches[5] == null))
 				System.out.println(name + " cannot disprove the suggestion");
-			return matches;
-		}//end proveOrDisproveSuggestion()
-		public Card[] proveOrDisproveAccusation(Card[] attemptedAccusation) {
-			Card[] matches = new Card[3];
-			for (int i = 0; i < attemptedAccusation.length; i++) {
-				for (int n = 0; n < cards.length; n++) {
-					if (attemptedAccusation[i] == cards[n]) {
-						matches[i] = attemptedAccusation[i];
-					}//end if
-				}//end for
-			}//end for
-			if ((matches[0] == null) && (matches[1] == null) && (matches[2] == null))
-				System.out.println(name + " cannot disprove the accusation");
 			return matches;
 		}//end proveOrDisproveSuggestion()
 		public Location getLocation() {
@@ -85,6 +73,15 @@ public class Player {
 		}//end disable()
 		public Card[] getCards(){
 			return cards;
+		}//end showCards()
+		public void showCards(){
+			int count = 1;
+			for(Card x: cards){
+				if (x != null) {
+					System.out.println("Card " + count + ": " + x.name);
+					count++;
+				}//end if
+			}//end for
 		}//end showCards()
 		public String getId() {
 			return id;

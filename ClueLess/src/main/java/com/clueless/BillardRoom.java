@@ -28,4 +28,3 @@ public class BillardRoom extends Location {
 			}//end if
 		}//end setToMoveOptions()
 }//end BillardRoom class
-lass

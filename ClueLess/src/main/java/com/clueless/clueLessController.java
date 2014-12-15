@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
  
 @Controller
@@ -150,6 +152,14 @@ public class clueLessController {
 		errorMessage = "";
 		return mv;
 	}
+	
+	@RequestMapping("/gamerules")
+    public ModelAndView showGameRules() {
+        System.out.println("in controller - gamerules");
+
+        ModelAndView mv = new ModelAndView("gamerules");
+        return mv;
+    }
 	
 	@RequestMapping("/gamescreen")
 	public ModelAndView showGameScreen(

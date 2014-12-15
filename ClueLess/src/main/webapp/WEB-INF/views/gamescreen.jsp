@@ -85,9 +85,20 @@
 		<aside class="aside aside-left">
 			<h3>Game Board</h3>
 			<div class="gameboard">
-				<c:forEach var="loc" items="${curLocations}">
+<%-- 				<c:forEach var="loc" items="${curLocations}">
 				  <div id="${loc.key}" class="${loc.value} abs"></div>
+				</c:forEach> --%>
+				<c:forEach var="loc" items="${curLocations}">
+					<ul id="${loc.key}" class="abs">
+						<li class="${loc.value}"/>
+					</ul>
 				</c:forEach>
+<!-- 				<ul class="green abs" id="study"/>
+				<ul class="scarlet abs" id="study"/>
+				<div class="scarlet abs"/>
+				<div class="scarlet abs"/>
+				<div class="scarlet abs"/> -->
+
 			</div>
 		</aside>
 	</div>
